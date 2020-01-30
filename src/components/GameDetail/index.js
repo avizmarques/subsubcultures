@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DetailCard from "./DetailCard";
+import { addToCart } from "../../store/cart/cartActions";
 
 class GameDetail extends Component {
   render() {
@@ -13,7 +14,10 @@ class GameDetail extends Component {
     const game = this.props.games.adventure.find(game => game.id === gameId);
     return (
       <div>
-        <DetailCard game={game} />
+        <DetailCard
+          game={game}
+          addToCart={() => this.props.dispatch(addToCart(game))}
+        />
       </div>
     );
   }

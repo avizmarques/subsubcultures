@@ -8,6 +8,8 @@ export default function DetailCard(props) {
       <p>by: {game.primary_publisher}</p>
       <img src={game.image_url} />
       <h2>€ {game.price}</h2>
+      <p>In stock!</p>
+      <button onClick={props.addToCart}> + ADD TO CART</button>
       <p>
         {game.min_players} - {game.max_players} players
       </p>
