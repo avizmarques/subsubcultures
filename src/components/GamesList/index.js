@@ -3,6 +3,7 @@ import { fetchAdventureGames } from "../../store/games/gamesActions";
 import { connect } from "react-redux";
 import GameCard from "./GameCard";
 import "./style.css";
+import { addToCart } from "../../store/cart/cartActions";
 
 class GamesList extends Component {
   componentDidMount = () => {
@@ -17,6 +18,7 @@ class GamesList extends Component {
         name={game.name}
         imgUrl={game.image_url}
         price={game.price}
+        addToCart={() => this.props.dispatch(addToCart(game))}
       />
     ));
   };

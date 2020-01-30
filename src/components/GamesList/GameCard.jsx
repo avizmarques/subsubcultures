@@ -9,6 +9,7 @@ export default function GameCard(props) {
       </Link>
       <h3>{props.name}</h3>
       <p>€ {props.price}</p>
+      <button onClick={props.addToCart}> + cart </button>
     </div>
   );
 }
