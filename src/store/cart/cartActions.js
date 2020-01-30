@@ -7,7 +7,10 @@ export function addToCart(game) {
 export function sendToCart(game) {
   return {
     type: "cart/ADD",
-    payload: game
+    payload: {
+      id: game.id,
+      price: game.price
+    }
   };
 }
 

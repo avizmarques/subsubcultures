@@ -1,9 +1,22 @@
-const initialstate = [];
+const initialstate = [
+  {
+    id: null,
+    qty: null
+  }
+];
 
 export function cartReducer(state = initialstate, action) {
   switch (action.type) {
     case "cart/ADD": {
-      return [...state, action.payload];
+      const itemInState = state.some(item => item.id === action.payload.id);
+
+      if (itemInState) {
+        return state.map(item =>
+          item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      }
+
+      return [...state, { ...action.payload, qty: 1 }];
     }
     case "cart/CLEAR": {
       return [];
