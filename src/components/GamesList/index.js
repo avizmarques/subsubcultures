@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { fetchAdventureGames } from "../store/games/gamesActions";
+import { fetchAdventureGames } from "../../store/games/gamesActions";
 import { connect } from "react-redux";
 import GameCard from "./GameCard";
+import "./style.css";
 
 class GamesList extends Component {
   componentDidMount = () => {
@@ -32,7 +33,9 @@ class GamesList extends Component {
     return (
       <div>
         <h2>Our favourites</h2>
-        {this.renderGameCards(this.props.games.adventure, GameCard)}
+        <div className="grid">
+          {this.renderGameCards(this.props.games.adventure, GameCard)}
+        </div>
       </div>
     );
   }

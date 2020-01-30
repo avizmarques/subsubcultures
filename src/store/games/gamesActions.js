@@ -1,6 +1,6 @@
 export async function fetchAdventureGames(dispatch, getState) {
   const adventureGamesRes = await fetch(
-    "https://www.boardgameatlas.com/api/search?category=KUBCKBkGxV&client_id=SB1VGnDv7M"
+    "https://www.boardgameatlas.com/api/search?category=KUBCKBkGxV&limit=12&client_id=SB1VGnDv7M"
   );
   const adventureGames = await adventureGamesRes.json();
   dispatch(gamesFetched(adventureGames.games));
