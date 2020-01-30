@@ -13,6 +13,7 @@ class GamesList extends Component {
     return games.map(game => (
       <CardComponent
         key={game.id}
+        id={game.id}
         name={game.name}
         imgUrl={game.image_url}
         price={game.price}
