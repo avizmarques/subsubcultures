@@ -7,6 +7,7 @@ import { addToCart } from "../../store/cart/cartActions";
 
 class GamesList extends Component {
   componentDidMount = () => {
+    console.log(this.props.results);
     this.props.dispatch(fetchGames("category=KUBCKBkGxV&limit=12"));
   };
 
@@ -24,7 +25,7 @@ class GamesList extends Component {
   };
 
   render() {
-    if (!this.props.games.adventure) {
+    if (!this.props.results.length) {
       return (
         <div>
           <h2>Our favourites</h2>
@@ -38,7 +39,7 @@ class GamesList extends Component {
         <h1>Welcome to Sub-Subcultures</h1>
         <p>Shop here for all your favourite board games</p>
         <div className="grid">
-          {this.renderGameCards(this.props.games.adventure, GameCard)}
+          {this.renderGameCards(this.props.results, GameCard)}
         </div>
       </div>
     );
@@ -47,7 +48,8 @@ class GamesList extends Component {
 
 function mapStateToProps(reduxState) {
   return {
-    games: reduxState.games
+    results: reduxState.gameSearches.results,
+    searchTerm: reduxState.gameSearches.searchTerm
   };
 }
 
