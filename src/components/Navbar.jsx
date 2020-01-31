@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { clearCart } from "../store/cart/cartActions";
 import cart from "./images/supermarket.png";
+import SearchGame from "./SearchGame";
 
 function Navbar(props) {
   return (
     <div className="navbar">
       <p>Sub-Subcultures</p>
       <Link to="/">Home</Link>
+      <SearchGame />
       <Link to="/cart">
         <p>
           <img src={cart} id="cart" /> ({props.numberOfItemsInCart})

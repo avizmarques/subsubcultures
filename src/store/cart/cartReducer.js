@@ -1,12 +1,4 @@
-const initialstate = [
-  {
-    id: null,
-    name: null,
-    price: null,
-    imgUrl: null,
-    qty: null
-  }
-];
+const initialstate = [];
 
 export function cartReducer(state = initialstate, action) {
   switch (action.type) {

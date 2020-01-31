@@ -9,14 +9,14 @@ const persistConfig = {
   storage
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const middleWare = compose(applyMiddleware(ReduxThunk), devTools);
-const store = createStore(persistedReducer, middleWare);
+const store = createStore(rootReducer, middleWare);
 
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
-export { persistor, store };
+export { store };
