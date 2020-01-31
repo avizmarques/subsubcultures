@@ -1,11 +1,9 @@
-const initialState = {
-  games: []
-};
+const initialState = {};
 
-export default function gamesReducer(state = initialState, action) {
+export function gamesReducer(state = initialState, action) {
   switch (action.type) {
-    case "games/FETCHED": {
-      return { ...state, games: action.payload };
+    case "adventureGames/FETCHED": {
+      return { ...state, adventure: action.payload };
     }
     default: {
       return state;

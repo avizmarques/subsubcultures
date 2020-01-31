@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
-import gamesReducer from "./games/gamesReducer";
+import { gamesReducer as games } from "./games/gamesReducer";
+import { cartReducer as cart } from "./cart/cartReducer";
 
-export default combineReducers({
-  games: gamesReducer
-});
+export default combineReducers({ games, cart });
