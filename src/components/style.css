@@ -8,3 +8,7 @@
 a {
   text-decoration: underline;
 }
+
+#cart {
+  width: 30px;
+}

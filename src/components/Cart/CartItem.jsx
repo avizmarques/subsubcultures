@@ -7,7 +7,7 @@ export default function CartItem(props) {
       <p>{props.name}</p>
       <p>{props.qty}</p>
       <p>€ {props.price}</p>
-      <button onClick={props.removeItem}>x</button>
+      <button onClick={props.removeFromCart}>x</button>
     </div>
   );
 }

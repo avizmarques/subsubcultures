@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CartItem from "./CartItem";
 import "./style.css";
+import { removeFromCart } from "../../store/cart/cartActions";
+import { Link } from "react-router-dom";
 
 class Cart extends Component {
   renderCartCards = (games, CardComponent) => {
@@ -13,6 +15,7 @@ class Cart extends Component {
         imgUrl={game.imgUrl}
         price={game.price}
         qty={game.qty}
+        removeFromCart={() => this.props.dispatch(removeFromCart(game))}
       />
     ));
   };
@@ -43,7 +46,9 @@ class Cart extends Component {
         <div className="total">
           <h2>Total</h2>
           <p>€ {this.calculateTotal(this.props.cart)}</p>
-          <button>Pay ></button>
+          <Link to="/cart/checkout">
+            <button>Pay ></button>
+          </Link>
         </div>
       </div>
     );
