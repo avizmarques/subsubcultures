@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import GameCard from "./GameCard";
 import "./style.css";
 import { addToCart } from "../../store/cart/cartActions";
+import Grid from "@material-ui/core/Grid";
 
 class GamesList extends Component {
   componentDidMount = () => {
