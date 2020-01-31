@@ -22,7 +22,13 @@ export function cartReducer(state = initialstate, action) {
       return [...state, { ...action.payload, qty: 1 }];
     }
     case "cart/REMOVE": {
-      return state.filter(item => item.id !== action.payload.id);
+      return action.payload.qty > 1
+        ? state.map(item =>
+            item.id === action.payload.id
+              ? { ...item, qty: item.qty - 1 }
+              : item
+          )
+        : state.filter(item => item.id !== action.payload.id);
     }
     case "cart/CLEAR": {
       return [];

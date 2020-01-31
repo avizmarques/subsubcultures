@@ -25,7 +25,13 @@ export function removeFromCart(game) {
 export function sendRemoveToCart(game) {
   return {
     type: "cart/REMOVE",
-    payload: { id: game.id }
+    payload: {
+      id: game.id,
+      name: game.name,
+      price: game.price,
+      imgUrl: game.image_url,
+      qty: game.qty
+    }
   };
 }
 

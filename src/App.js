@@ -5,6 +5,7 @@ import GamesList from "./components/GamesList";
 import GameDetail from "./components/GameDetail";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/cart" component={Cart} />
         <Route path="/" component={GamesList} />
       </Switch>
+      <Footer />
     </div>
   );
 }
