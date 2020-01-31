@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CartItem from "./CartItem";
 import "./style.css";
+import { removeFromCart } from "../../store/cart/cartActions";
 
 class Cart extends Component {
   renderCartCards = (games, CardComponent) => {
@@ -13,6 +14,7 @@ class Cart extends Component {
         imgUrl={game.imgUrl}
         price={game.price}
         qty={game.qty}
+        removeFromCart={() => this.props.dispatch(removeFromCart(game))}
       />
     ));
   };

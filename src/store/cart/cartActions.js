@@ -16,6 +16,19 @@ export function sendToCart(game) {
   };
 }
 
+export function removeFromCart(game) {
+  return dispatch => {
+    dispatch(sendRemoveToCart(game));
+  };
+}
+
+export function sendRemoveToCart(game) {
+  return {
+    type: "cart/REMOVE",
+    payload: { id: game.id }
+  };
+}
+
 export function clearCart() {
   return {
     type: "cart/CLEAR"
