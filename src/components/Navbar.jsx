@@ -15,7 +15,7 @@ function Navbar(props) {
           <img src={cart} id="cart" /> ({props.numberOfItemsInCart})
         </p>
       </Link>
-      <button onClick={() => props.dispatch(clearCart())}>Clear Cart</button>
+      <button onClick={() => props.dispatch(clearCart())}>clear</button>
     </div>
   );
 }
