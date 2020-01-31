@@ -1,6 +1,9 @@
 const initialstate = [
   {
     id: null,
+    name: null,
+    price: null,
+    imgUrl: null,
     qty: null
   }
 ];
@@ -18,9 +21,13 @@ export function cartReducer(state = initialstate, action) {
 
       return [...state, { ...action.payload, qty: 1 }];
     }
+    case "cart/REMOVE": {
+      return state.filter(item => item.id !== action.payload.id);
+    }
     case "cart/CLEAR": {
       return [];
     }
+
     default: {
       return state;
     }

@@ -9,7 +9,9 @@ export function sendToCart(game) {
     type: "cart/ADD",
     payload: {
       id: game.id,
-      price: game.price
+      name: game.name,
+      price: game.price,
+      imgUrl: game.image_url
     }
   };
 }

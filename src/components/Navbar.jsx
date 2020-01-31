@@ -9,7 +9,9 @@ function Navbar(props) {
     <div className="navbar">
       <p>Sub-Subcultures</p>
       <Link to="/">Home</Link>
-      <p>Cart ({props.numberOfItemsInCart})</p>
+      <Link to="/cart">
+        <p>Cart ({props.numberOfItemsInCart})</p>
+      </Link>
       <button onClick={() => props.dispatch(clearCart())}>Clear Cart</button>
     </div>
   );

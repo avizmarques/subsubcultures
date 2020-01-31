@@ -1,0 +1,9 @@
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 100px;
+}
