@@ -7,11 +7,13 @@ class GameDetail extends Component {
   render() {
     const gameId = this.props.match.params.id;
 
-    if (!this.props.games) {
+    if (this.props.gameSearches.results.length === 0) {
       return <div>Loading...</div>;
     }
 
-    const game = this.props.games.adventure.find(game => game.id === gameId);
+    const game = this.props.gameSearches.results.find(
+      game => game.id === gameId
+    );
     return (
       <div>
         <DetailCard
@@ -25,7 +27,7 @@ class GameDetail extends Component {
 
 function mapStateToProps(reduxState) {
   return {
-    games: reduxState.games
+    gameSearches: reduxState.gameSearches
   };
 }
 
