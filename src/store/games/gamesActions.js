@@ -1,14 +1,21 @@
-export async function fetchAdventureGames(dispatch, getState) {
-  const adventureGamesRes = await fetch(
-    "https://www.boardgameatlas.com/api/search?category=KUBCKBkGxV&limit=12&client_id=SB1VGnDv7M"
-  );
-  const adventureGames = await adventureGamesRes.json();
-  dispatch(gamesFetched(adventureGames.games));
+export function fetchGames(searchTerm) {
+  return (dispatch, getState) => {
+    fetch(
+      `https://www.boardgameatlas.com/api/search?${searchTerm}&client_id=SB1VGnDv7M`
+    )
+      .then(res => res.json())
+      .then(data => {
+        dispatch(gamesFetched(data.games, searchTerm));
+      });
+  };
 }
 
-export function gamesFetched(games) {
+export function gamesFetched(games, searchTerm) {
   return {
-    type: "adventureGames/FETCHED",
-    payload: games
+    type: "games/FETCHED",
+    payload: {
+      results: games,
+      searchTerm
+    }
   };
 }
